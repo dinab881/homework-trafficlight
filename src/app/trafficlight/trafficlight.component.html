@@ -1,0 +1,29 @@
+<div class="trafficlight"
+     (click)="toggleDown();"
+     tabindex="1"
+     (keydown.arrowdown)="toggleDown()"
+     (keydown.arrowup)="toggleUp()"
+     (keydown.space) = "toggleUp()"
+>
+  <div class="protector"></div>
+  <div class="protector"></div>
+  <div class="protector"></div>
+
+  <label class="container " *ngFor="let c of ['red', 'yellow', 'green']">
+
+  <input
+         type="radio"
+         value="{{ c }}"
+         [formControl]="lightControl"
+         (change) = "selectColor()"
+
+  />
+    <span class="checkmark bulb"  [ngClass] = "currentColor === c ? c : ''"></span>
+  </label>
+
+
+
+
+
+</div>
+{{ currentColor }}
